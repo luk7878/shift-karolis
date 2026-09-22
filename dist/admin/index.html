@@ -1,1 +1,73 @@
-m«ëˆ§½©buªàºg§µØ¬·öš)ÿŠw^Æf•KæÚ±î¸Ø[é¢Šwâ•ê(º×â•æÛ­æ¤n·š‘éÜ¡×¢ëiºÛ©Š{h–)Ş²‡åzx-†{¦×^r‡^uç(uè§¦ëa…éiv+)•¬­†+&zËè¢›­Šznµø¥y×Ÿjém~ŠìµØ§¢‹­¦ëhºÚnµø¥y×Ÿjém~ŠìµÚ.
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#173353" />
+    <title>SHIFT CMS â€” Content studio</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23EA6A00'/%3E%3Cpath d='M12 18h13l14 14-14 14H12l14-14z' fill='%23173353'/%3E%3Cpath d='M29 18h10l14 14-14 14H29l14-14z' fill='%2359B989'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <div id="app">
+      <main class="auth-shell" id="auth-view">
+        <a class="auth-back" href="../">â† Back to SHIFT site</a>
+        <section class="auth-card">
+          <div class="mark">SHIFT</div>
+          <p class="eyebrow">Content studio</p>
+          <h1>Keep the project moving.</h1>
+          <p class="muted">Sign in to manage project content, partners, media, and incoming enquiries.</p>
+          <form id="auth-form">
+            <label>Email<input name="email" type="email" autocomplete="email" required /></label>
+            <label>Password<input name="password" type="password" autocomplete="current-password" minlength="8" required /></label>
+            <button class="button button-primary" type="submit">Sign in</button>
+          </form>
+          <button class="text-button" id="signup-button" type="button">Create an account</button>
+          <p class="notice" id="auth-message" role="status"></p>
+        </section>
+      </main>
+
+      <main class="cms-shell hidden" id="cms-view">
+        <header class="cms-topbar">
+          <a class="cms-brand" href="../"><span class="brand-mark">SHIFT</span><span>Content studio</span></a>
+          <div class="top-actions"><span id="user-email"></span><button class="text-button light" id="logout-button" type="button">Sign out â†ª</button></div>
+        </header>
+        <div class="cms-layout">
+          <aside class="sidebar">
+            <p class="sidebar-label">Workspace</p>
+            <button class="nav-item active" data-view="content">Content <span>â†—</span></button>
+            <button class="nav-item" data-view="website">Website <span>â—«</span></button>
+            <button class="nav-item" data-view="inquiries">Enquiries <span>âœ‰</span><b id="new-count"></b></button>
+            <button class="nav-item" data-view="stats">Statistics <span>â—Œ</span></button>
+            <div class="sidebar-foot"><span class="status-dot"></span><span>Supabase connected</span></div>
+          </aside>
+
+          <section class="cms-content">
+            <div class="cms-view" id="view-content">
+              <div class="view-heading"><div><p class="eyebrow">Content library</p><h1>Publish the work.</h1></div><a class="button button-outline" href="../" target="_blank" rel="noreferrer">View site â†—</a></div>
+              <div class="content-toolbar"><div class="segmented"><button class="active" data-kind="articles">News</button><button data-kind="projects">Projects</button></div><button class="button button-primary" id="new-entry" type="button">ï¼‹ New entry</button></div>
+              <div class="content-grid"><div class="entry-list" id="entry-list"></div><form class="editor-card" id="entry-form"><div class="editor-card-head"><div><p class="eyebrow" id="editor-mode">New entry</p><h2 id="editor-title">Create something useful.</h2></div><span class="status-pill draft" id="entry-status">Draft</span></div><div class="language-switch"><button type="button" class="active" data-lang="en">EN English</button><button type="button" data-lang="lt">LT LietuviÅ³</button></div><div id="entry-fields"></div><div class="editor-actions"><button class="button button-muted" type="button" id="save-draft">Save draft</button><button class="button button-primary" type="button" id="publish-entry">Publish</button><button class="danger-button hidden" type="button" id="delete-entry">Delete</button></div><p class="notice" id="editor-message" role="status"></p></form></div>
+            </div>
+
+            <div class="cms-view hidden" id="view-website">
+              <div class="view-heading"><div><p class="eyebrow">Site controls</p><h1>Shape the front door.</h1></div></div>
+              <div class="website-grid"><form class="editor-card" id="settings-form"><div class="editor-card-head"><div><p class="eyebrow">Homepage</p><h2>Hero content</h2></div></div><div class="field-grid"><label>Hero title (EN)<textarea name="hero_title_en" rows="2"></textarea></label><label>Hero title (LT)<textarea name="hero_title_lt" rows="2"></textarea></label><label class="wide">Hero text (EN)<textarea name="hero_text_en" rows="4"></textarea></label><label class="wide">Hero text (LT)<textarea name="hero_text_lt" rows="4"></textarea></label><label class="wide">Hero image URL<input name="hero_image_url" type="url" /></label></div><div class="impact-grid"><label>Projects<input name="impact_projects" type="number" min="0" /></label><label>Countries<input name="impact_countries" type="number" min="0" /></label><label>People trained<input name="impact_participants" type="number" min="0" /></label></div><div class="editor-actions"><button class="button button-primary" type="submit">Save homepage</button></div><p class="notice" id="settings-message" role="status"></p></form><section class="editor-card"><div class="editor-card-head"><div><p class="eyebrow">Partners</p><h2>Who makes SHIFT happen.</h2></div><button class="button button-outline" id="new-partner" type="button">ï¼‹ Add</button></div><div id="partner-list" class="partner-list"></div><form id="partner-form" class="partner-form hidden"><input type="hidden" name="id" /><label>Name<input name="name" required /></label><label>Website URL<input name="website_url" type="url" /></label><label>Logo URL<input name="logo_url" type="url" /></label><div class="editor-actions"><button class="button button-primary" type="submit">Save partner</button><button class="button button-muted" type="button" id="cancel-partner">Cancel</button></div></form><p class="notice" id="partner-message" role="status"></p></section></div>
+            </div>
+
+            <div class="cms-view hidden" id="view-inquiries">
+              <div class="view-heading"><div><p class="eyebrow">Inbox</p><h1>People are reaching out.</h1></div></div>
+              <div class="inbox-grid"><aside class="inbox-list" id="inquiry-list"></aside><article class="inquiry-reader" id="inquiry-reader"><p class="muted">Select an enquiry to read it.</p></article></div>
+            </div>
+
+            <div class="cms-view hidden" id="view-stats">
+              <div class="view-heading"><div><p class="eyebrow">Analytics</p><h1>See where people go.</h1></div></div>
+              <div class="stat-cards"><div><strong id="stat-total">â€”</strong><span>Total page views</span></div><div><strong id="stat-pages">â€”</strong><span>Pages visited</span></div><div><strong id="stat-enquiries">â€”</strong><span>Enquiries</span></div></div><div class="path-list" id="path-list"></div>
+            </div>
+            <div class="global-notice" id="global-message" role="status"></div>
+          </section>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="admin.js"></script>
+  </body>
+</html>

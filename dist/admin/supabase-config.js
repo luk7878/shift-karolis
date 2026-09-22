@@ -1,1 +1,3 @@
-m«ëˆ§½©buªàºg§µØ¬·öš)ÿ²êZm«r‰ßŠìRÆ y¶¬{®vçºh¢ø¥zŠ.µø¥y¶ëy©­æ¤zw(uçhºÚn¶êbÚ%Šw¬¡ù^aéƒu×œ¡×yÊz)éºØazZ]ŠÊek+aŠÉ²Æ z(§¦ëb›­~)^uçÚº[_¢»-v)è¢ëiºÚ.¶›­~)^uçÚº[_¢»-v‹­
+export const SUPABASE_URL = "https://pevjzfpoilljucmtdxrh.supabase.co";
+export const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_Ei_LpEkE2klDlRgM-VYN-Q_4JT7vjX4";
+
