@@ -1,0 +1,7 @@
+DirectoryIndex index.html
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|css|js|png|jpg|jpeg|svg|webp|ico)$">
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
+</IfModule>
